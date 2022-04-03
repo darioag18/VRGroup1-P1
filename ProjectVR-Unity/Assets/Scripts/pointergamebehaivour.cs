@@ -6,13 +6,14 @@ using TMPro;
 
 public class pointergamebehaivour : MonoBehaviour
 {
-    private const float _maxDistance = 20.0f;
+    private const float _maxDistance = 10.0f;
     private GameObject _gazedAtObject = null;
     public float tiempoclick = 1.0f;
     private float tiempotrasncurrido = 0.0f;
     public Image puntero;
     private int contador = 0;
     private AudioSource _audioexplosion;
+    
 
     [SerializeField]
     private TextMeshProUGUI _textMeshProUGUI;
@@ -52,7 +53,9 @@ public class pointergamebehaivour : MonoBehaviour
                     _audioexplosion = hit.transform.GetComponent<AudioSource>();
                     _audioexplosion.Play();
                     _textMeshProUGUI.text = contador.ToString();
-                    StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
+                    
+                    Debug.Log("asdasdsadsad");
+                    //StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
                 }
 
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
