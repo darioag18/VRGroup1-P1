@@ -1249,7 +1249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834692568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.75, y: 0, z: -0.0013109}
+  m_LocalPosition: {x: -3.0964, y: 0, z: -0.0013109}
   m_LocalScale: {x: 1.1612293, y: 1.1669408, z: 4.332732}
   m_Children:
   - {fileID: 1173369561}
@@ -1407,10 +1407,6 @@ PrefabInstance:
     - target: {fileID: 1390660313488427241, guid: 7ee720b41c0ddbc4782da8274257b97e, type: 3}
       propertyPath: m_Name
       value: CharacterGhost
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612689170851283129, guid: 7ee720b41c0ddbc4782da8274257b97e, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5809291834825643314, guid: 7ee720b41c0ddbc4782da8274257b97e, type: 3}
       propertyPath: _textMeshProUGUI
