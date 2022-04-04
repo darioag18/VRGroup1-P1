@@ -29,7 +29,7 @@ public class MenuGaze : MonoBehaviour
 
     public void OnPointerMenuStartEnter()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(2);
 
     }
 
