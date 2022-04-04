@@ -116,9 +116,28 @@ public class pointergamebehaivour : MonoBehaviour
                 if (hit.transform.tag == "book")
                 {
                     book.SetActive(true);
-                    _texto.text = "Hola caracola";
+                    _texto.text = "Wh Questions.";
                 }
-
+                if (hit.transform.tag == "book2")
+                {
+                    book.SetActive(true);
+                    _texto.text = "Yes/No Questions.";
+                }
+                if (hit.transform.tag == "book3")
+                {
+                    book.SetActive(true);
+                    _texto.text = "Affirmative.";
+                }
+                 if (hit.transform.tag == "book4")
+                {
+                    book.SetActive(true);
+                    _texto.text = "Negative.";
+                }
+                  if (hit.transform.tag == "book5")
+                {
+                    book.SetActive(true);
+                    _texto.text = "Conjugation.";
+                }
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
                 {
                     _gazedAtObject = hit.transform.gameObject;
