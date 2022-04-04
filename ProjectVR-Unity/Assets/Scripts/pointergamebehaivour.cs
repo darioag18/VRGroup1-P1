@@ -9,14 +9,29 @@ public class pointergamebehaivour : MonoBehaviour
     private const float _maxDistance = 10.0f;
     private GameObject _gazedAtObject = null;
     public float tiempoclick = 1.0f;
-    private float tiempotrasncurrido = 0.0f;
+    private float tiempotrasncurrido = 20.0f;
     public Image puntero;
     private int contador = 0;
     private AudioSource _audioexplosion;
+    public Canvas canvas1;
+    public Canvas canvas2;
+    public Canvas canvas3;
+    public Canvas canvas4;
+    public Canvas canvas5;
+    
     
 
     [SerializeField]
     private TextMeshProUGUI _textMeshProUGUI;
+
+    void Start()
+    {   
+        canvas1.GetComponent<Canvas> ().enabled = false;
+        canvas2.GetComponent<Canvas> ().enabled = false;
+        canvas3.GetComponent<Canvas> ().enabled = false;
+        canvas4.GetComponent<Canvas> ().enabled = false;
+        canvas5.GetComponent<Canvas> ().enabled = false;
+    }
 
 
     // Update is called once per frame
@@ -58,6 +73,46 @@ public class pointergamebehaivour : MonoBehaviour
                     //StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
                 }
 
+                if (hit.transform.tag == "nino")
+                {
+                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                    _audioexplosion.Play();
+
+                    canvas1.enabled = true;
+                }
+
+                if (hit.transform.tag == "elfo")
+                {
+                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                    _audioexplosion.Play();
+
+                    canvas2.enabled = true;
+                }
+
+                if (hit.transform.tag == "lenadora")
+                {
+                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                    _audioexplosion.Play();
+
+                    canvas3.enabled = true;
+                }
+
+                if (hit.transform.tag == "cajero")
+                {
+                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                    _audioexplosion.Play();
+
+                    canvas4.enabled = true;
+                }
+
+                if (hit.transform.tag == "constructora")
+                {
+                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                    _audioexplosion.Play();
+
+                    canvas5.enabled = true;
+                }
+
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
                 {
                     _gazedAtObject = hit.transform.gameObject;
@@ -80,6 +135,11 @@ public class pointergamebehaivour : MonoBehaviour
             //  _gazedAtObject?.SendMessage("CargarAnimacion");
             //  _gazedAtObject = null;
             puntero.fillAmount = 0.0f;
+            canvas1.enabled = false;
+            canvas2.enabled = false;
+            canvas3.enabled = false;
+            canvas4.enabled = false;
+            canvas5.enabled = false;
 
         }
     }

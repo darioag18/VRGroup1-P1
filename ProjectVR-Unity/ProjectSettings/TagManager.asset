@@ -8,6 +8,11 @@ TagManager:
   - Menu
   - enemy
   - teleport
+  - nino
+  - elfo
+  - lenadora
+  - cajero
+  - constructora
   layers:
   - Default
   - TransparentFX
