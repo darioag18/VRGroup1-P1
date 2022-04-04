@@ -13,6 +13,7 @@ TagManager:
   - lenadora
   - cajero
   - constructora
+  - book
   layers:
   - Default
   - TransparentFX

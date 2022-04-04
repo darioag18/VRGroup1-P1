@@ -18,11 +18,12 @@ public class pointergamebehaivour : MonoBehaviour
     public Canvas canvas3;
     public Canvas canvas4;
     public Canvas canvas5;
+    public GameObject book;
     
     
 
     [SerializeField]
-    private TextMeshProUGUI _textMeshProUGUI;
+    public TextMeshProUGUI _texto;
 
     void Start()
     {   
@@ -67,7 +68,7 @@ public class pointergamebehaivour : MonoBehaviour
                     contador++;
                     _audioexplosion = hit.transform.GetComponent<AudioSource>();
                     _audioexplosion.Play();
-                    _textMeshProUGUI.text = contador.ToString();
+                    //_textMeshProUGUI.text = contador.ToString();
                     
                     Debug.Log("asdasdsadsad");
                     //StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
@@ -112,6 +113,11 @@ public class pointergamebehaivour : MonoBehaviour
 
                     canvas5.enabled = true;
                 }
+                if (hit.transform.tag == "book")
+                {
+                    book.SetActive(true);
+                    _texto.text = "Hola caracola";
+                }
 
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
                 {
@@ -125,6 +131,8 @@ public class pointergamebehaivour : MonoBehaviour
                     _gazedAtObject.SendMessage("teleportEscena");
                     _gazedAtObject = null;
                 }
+
+                
                 tiempotrasncurrido = 0.0f;
             }
         }
@@ -140,7 +148,7 @@ public class pointergamebehaivour : MonoBehaviour
             canvas3.enabled = false;
             canvas4.enabled = false;
             canvas5.enabled = false;
-
+           book.SetActive(false);
         }
     }
 
