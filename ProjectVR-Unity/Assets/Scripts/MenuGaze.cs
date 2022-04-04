@@ -27,41 +27,19 @@ public class MenuGaze : MonoBehaviour
         #endif
     }
 
-    public void OnPointerMenuL0Enter()
-    {
-        SceneManager.LoadScene(2);
-        
-    }
-
-    public void OnPointerMenuL1Enter()
+    public void OnPointerMenuStartEnter()
     {
         SceneManager.LoadScene(5);
 
     }
 
-    public void OnPointerMenuL2Enter()
-    {
-        SceneManager.LoadScene(5);
-
-    }
     public void OnPointerExit()
     {
-
-    }
-
-    public void OnPointerMenuL0Exit()
-    {
-
-    }
-
-    public void OnPointerMenuL1Exit()
-    {
-
-    }
-
-    public void OnPointerMenuQExit()
-    {
-
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+			Application.Quit();
+        #endif
     }
 
     private void Update()

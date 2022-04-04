@@ -63,27 +63,20 @@ public class CameraPointer : MonoBehaviour
             if ((_gazedAtObject != hit.transform.gameObject) && tiempotrasncurrido >= tiempoclick)
             {
 
-                if (hit.transform.name == "ButtonLevel0")
-                {
-                    _gazedAtObject?.SendMessage("OnPointerMenuL0Exit");
-                    _gazedAtObject = hit.transform.gameObject;
-                    _gazedAtObject.SendMessage("OnPointerMenuL0Enter");
-                }
-
                 if (hit.transform.name == "ButtonQuit")
                 {
 
-                    _gazedAtObject?.SendMessage("OnPointerMenuQExit");
+                    _gazedAtObject?.SendMessage("OnPointerExit");
                     _gazedAtObject = hit.transform.gameObject;
                     _gazedAtObject.SendMessage("OnPointerMenuQEnter");
                 }
 
-                if (hit.transform.name == "ButtonLevel1")
+                if (hit.transform.name == "ButtonGame")
                 {
 
-                    _gazedAtObject?.SendMessage("OnPointerMenuL1Exit");
+                    _gazedAtObject?.SendMessage("OnPointerExit");
                     _gazedAtObject = hit.transform.gameObject;
-                    _gazedAtObject.SendMessage("OnPointerMenuL1Enter");
+                    _gazedAtObject.SendMessage("OnPointerMenuStartEnter");
                 }
 
                 // New GameObject.
