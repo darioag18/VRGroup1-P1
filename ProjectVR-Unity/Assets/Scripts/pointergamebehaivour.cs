@@ -116,27 +116,30 @@ public class pointergamebehaivour : MonoBehaviour
                 if (hit.transform.tag == "book")
                 {
                     book.SetActive(true);
-                    _texto.text = "Wh Questions.";
+                    _texto.text = "Wh Questions.\nUse do and does to make questions. “Does” for third person singular (he/she/it) and “Do” for others (I/you/we/they). Wh + Auxiliary + Subject + Verb";
                 }
                 if (hit.transform.tag == "book2")
                 {
                     book.SetActive(true);
-                    _texto.text = "Yes/No Questions.";
+                    _texto.text = "Yes/No Questions.\n Yes/no Questions Those questions can be answered by yes or no.Auxiliary + Subject + Verb";
                 }
                 if (hit.transform.tag == "book3")
                 {
                     book.SetActive(true);
-                    _texto.text = "Affirmative.";
+                    _texto.text = "Affirmative. \n To make positive sentences, the pronouns I/you/we/they always go at the beginning of the sentence and the verb keeps in its base form. To make positive sentences, the pronouns he/she/it need a complement to above conditions to the base form of the verb.";
                 }
                  if (hit.transform.tag == "book4")
                 {
                     book.SetActive(true);
-                    _texto.text = "Negative.";
+                    _texto.text = "Negative. \n To make negative sentences, we need to use the same rules of positive sentences, but with conjugations “do not” (don’t) to I/you/we/they pronouns or “does not” (doesn’t) to he/she/it pronouns.To make the verb to be negative, the structure of the sentence is to be + not. ";
                 }
                   if (hit.transform.tag == "book5")
                 {
                     book.SetActive(true);
-                    _texto.text = "Conjugation.";
+                    _texto.text = "Conjugation. \nIn the present simple 3rd person singular adds “s”, “es” or “ies” to the base form of the verb:"
+                    +"\n For verbs that end in “X”, “Z”, “O”, “H”, “SS” or “SH” we add “ES”"
+                    +"\nFor verbs that end in consonant + “Y” we remove the “Y” and add “IES”"
+                    +"\nFor other verbs that end in vowel + “Y” we add a “S”";
                 }
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
                 {
