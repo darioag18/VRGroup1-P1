@@ -18,6 +18,16 @@ TagManager:
   - book3
   - book4
   - book5
+  - rightAns1
+  - rightAns2
+  - rightAns3
+  - rightAns4
+  - rightAns5
+  - wrongAns1
+  - wrongAns2
+  - wrongAns3
+  - wrongAns4
+  - wrongAns5
   layers:
   - Default
   - TransparentFX

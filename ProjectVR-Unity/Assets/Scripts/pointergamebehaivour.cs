@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,6 +14,10 @@ public class pointergamebehaivour : MonoBehaviour
     public Image puntero;
     private int contador = 0;
     private AudioSource _audioexplosion;
+    public float tiempoRes = 0.0f;
+    
+    private bool ninoRes, elfoRes, lenadoraRes, cajeroRes, constructoraRes = false;
+
     public Canvas canvas1;
     public Canvas canvas2;
     public Canvas canvas3;
@@ -20,10 +25,11 @@ public class pointergamebehaivour : MonoBehaviour
     public Canvas canvas5;
     public GameObject book;
     
-    
 
     [SerializeField]
     public TextMeshProUGUI _texto;
+    public TextMeshProUGUI _textCount;
+    public TextMeshProUGUI _textResVerify;
 
     void Start()
     {   
@@ -53,7 +59,7 @@ public class pointergamebehaivour : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
         {
-
+            tiempoRes += Time.deltaTime;
             tiempotrasncurrido += Time.deltaTime;
             puntero.fillAmount = (1.0f * tiempotrasncurrido) / tiempoclick;
 
@@ -76,42 +82,52 @@ public class pointergamebehaivour : MonoBehaviour
 
                 if (hit.transform.tag == "nino")
                 {
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
+                    if (!ninoRes) {
+                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                        _audioexplosion.Play();
 
-                    canvas1.enabled = true;
+                        canvas1.enabled = true;
+                    }
                 }
 
                 if (hit.transform.tag == "elfo")
                 {
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
+                    if (!elfoRes) {
+                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                        _audioexplosion.Play();
 
-                    canvas2.enabled = true;
+                        canvas2.enabled = true;
+                    }
                 }
 
                 if (hit.transform.tag == "lenadora")
                 {
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
+                    if (!lenadoraRes) {
+                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                        _audioexplosion.Play();
 
-                    canvas3.enabled = true;
+                        canvas3.enabled = true;
+                    }
                 }
 
                 if (hit.transform.tag == "cajero")
                 {
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
+                    if (!cajeroRes) {
+                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                        _audioexplosion.Play();
 
-                    canvas4.enabled = true;
+                        canvas4.enabled = true;
+                    }
                 }
 
                 if (hit.transform.tag == "constructora")
                 {
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
+                    if (!constructoraRes) {
+                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
+                        _audioexplosion.Play();
 
-                    canvas5.enabled = true;
+                        canvas5.enabled = true;
+                    }
                 }
                 if (hit.transform.tag == "book")
                 {
@@ -141,6 +157,103 @@ public class pointergamebehaivour : MonoBehaviour
                     +"\nFor verbs that end in consonant + “Y” we remove the “Y” and add “IES”"
                     +"\nFor other verbs that end in vowel + “Y” we add a “S”";
                 }
+
+
+                // Options
+                // Right options
+                if (hit.transform.tag == "rightAns1")
+                {
+                    if (!ninoRes) 
+                    {
+                        contador++;
+                        _textCount.text = contador.ToString() + "/5";
+                        ninoRes = true;
+                        canvas1.enabled = false;
+                        StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                    }
+                }
+                if (hit.transform.tag == "rightAns2")
+                {
+                    if (!elfoRes) 
+                    {
+                        contador++;
+                        _textCount.text = contador.ToString() + "/5";
+                        elfoRes = true;
+                        canvas2.enabled = false;
+                        StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                    }
+                }
+                if (hit.transform.tag == "rightAns3")
+                {
+                    if (!lenadoraRes) 
+                    {
+                        contador++;
+                        _textCount.text = contador.ToString() + "/5";
+                        lenadoraRes = true;
+                        canvas3.enabled = false;
+                        StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                    }
+                }
+                if (hit.transform.tag == "rightAns4")
+                {
+                    if (!cajeroRes) 
+                    {
+                        contador++;
+                        _textCount.text = contador.ToString() + "/5";
+                        cajeroRes = true;
+                        canvas4.enabled = false;
+                        StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                    }
+                }
+                if (hit.transform.tag == "rightAns5")
+                {
+                    if (!constructoraRes) 
+                    {
+                        contador++;
+                        _textCount.text = contador.ToString() + "/5";
+                        constructoraRes = true;
+                        canvas5.enabled = false;
+                        StartCoroutine(ShowVerificationAns("Correct Answer!", 3, true));
+                    }
+                }
+                // Wrong options
+                if (hit.transform.tag == "wrongAns1")
+                {
+                    if (!ninoRes) 
+                    {
+                        StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
+                    }
+                }
+                if (hit.transform.tag == "wrongAns2")
+                {
+                    if (!elfoRes) 
+                    {
+                        StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
+                    }
+                }
+                if (hit.transform.tag == "wrongAns3")
+                {
+                    if (!lenadoraRes) 
+                    {
+                        StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
+                    }
+                }
+                if (hit.transform.tag == "wrongAns4")
+                {
+                    if (!cajeroRes) 
+                    {
+                        StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
+                    }
+                }
+                if (hit.transform.tag == "wrongAns5")
+                {
+                    if (!constructoraRes) 
+                    {
+                        StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
+                    }
+                }
+
+                
                 if (hit.transform.tag =="teleport" && hit.transform.name != "Portal 4")
                 {
                     _gazedAtObject = hit.transform.gameObject;
@@ -153,8 +266,6 @@ public class pointergamebehaivour : MonoBehaviour
                     _gazedAtObject.SendMessage("teleportEscena");
                     _gazedAtObject = null;
                 }
-
-                
                 tiempotrasncurrido = 0.0f;
             }
         }
@@ -170,7 +281,7 @@ public class pointergamebehaivour : MonoBehaviour
             canvas3.enabled = false;
             canvas4.enabled = false;
             canvas5.enabled = false;
-           book.SetActive(false);
+            book.SetActive(false);
         }
     }
 
@@ -181,6 +292,20 @@ public class pointergamebehaivour : MonoBehaviour
             yield return new WaitForSeconds(1);
             Destroy(enemigo);
         }
+    }
+
+    private IEnumerator ShowVerificationAns (string message, float delay, bool correct) {
+        _textResVerify.text = message;
+        if (!correct)
+        {
+            _textResVerify.color = new Color(255, 0, 0, 255);
+        } else
+        {
+            _textResVerify.color = new Color(0, 255, 0, 255);
+        }
+        _textResVerify.enabled = true;
+        yield return new WaitForSeconds(delay);
+        _textResVerify.enabled = false;
     }
         
 }
