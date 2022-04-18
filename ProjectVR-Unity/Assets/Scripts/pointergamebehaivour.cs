@@ -24,6 +24,7 @@ public class pointergamebehaivour : MonoBehaviour
     public Canvas canvas4;
     public Canvas canvas5;
     public GameObject book;
+    public GameObject wallToDestroy;
     
 
     [SerializeField]
@@ -49,6 +50,10 @@ public class pointergamebehaivour : MonoBehaviour
         if (Google.XR.Cardboard.Api.IsTriggerPressed)
         {
             _gazedAtObject?.SendMessage("OnPointerClick");
+        }
+        if (contador >= 5)
+        {
+            Destroy(wallToDestroy);
         }
     }
 
