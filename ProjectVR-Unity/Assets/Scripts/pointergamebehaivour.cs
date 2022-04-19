@@ -13,10 +13,11 @@ public class pointergamebehaivour : MonoBehaviour
     private float tiempotrasncurrido = 20.0f;
     public Image puntero;
     private int contador = 0;
-    private AudioSource _audioexplosion;
+    private AudioSource[] _audio;
     public float tiempoRes = 0.0f;
     
     private bool ninoRes, elfoRes, lenadoraRes, cajeroRes, constructoraRes = false;
+    private bool ninoShow, elfoShow, lenadoraShow, cajeroShow, constructoraShow = false;
 
     public Canvas canvas1;
     public Canvas canvas2;
@@ -73,65 +74,74 @@ public class pointergamebehaivour : MonoBehaviour
             if ((_gazedAtObject != hit.transform.gameObject) && tiempotrasncurrido >= tiempoclick)
             {
 
-                if (hit.transform.tag == "enemy")
-                {
-                    //Debug.Log("Eliminado  :" + hit.transform.name);
-                    contador++;
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
-                    //_textMeshProUGUI.text = contador.ToString();
-                    
-                    Debug.Log("asdasdsadsad");
-                    //StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
-                }
-
                 if (hit.transform.tag == "nino")
                 {
                     if (!ninoRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                      
+                        if(!ninoShow){
+                            _audio[0].Play();
+
+                        }
 
                         canvas1.enabled = true;
+                        ninoShow = true;
                     }
                 }
 
                 if (hit.transform.tag == "elfo")
                 {
                     if (!elfoRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
-
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        if(!elfoShow){
+                            _audio[0].Play();
+                        }
+                        
                         canvas2.enabled = true;
+                        elfoShow = true;
                     }
                 }
 
                 if (hit.transform.tag == "lenadora")
                 {
                     if (!lenadoraRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        if(!lenadoraShow){
+                            _audio[0].Play();    
+                        }
 
+                        
                         canvas3.enabled = true;
+                        lenadoraShow = true;
                     }
                 }
 
                 if (hit.transform.tag == "cajero")
                 {
                     if (!cajeroRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        if(!cajeroShow){
+                            _audio[0].Play();    
+                        }
 
+                        
                         canvas4.enabled = true;
+                        cajeroShow = true;
                     }
                 }
 
                 if (hit.transform.tag == "constructora")
                 {
                     if (!constructoraRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
+                        _audio = hit.transform.GetComponents<AudioSource>();
 
+                        if(!constructoraShow){
+                            _audio[0].Play();    
+                        }
+                        
                         canvas5.enabled = true;
+                        constructoraShow = true;
                     }
                 }
                 if (hit.transform.tag == "book")
@@ -168,92 +178,128 @@ public class pointergamebehaivour : MonoBehaviour
                 // Right options
                 if (hit.transform.tag == "rightAns1")
                 {
-                    if (!ninoRes) 
-                    {
+                    if (ninoShow) 
+                    {   
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
+
                         contador++;
                         _textCount.text = contador.ToString() + "/5";
                         ninoRes = true;
                         canvas1.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                        ninoShow = false;
                     }
                 }
                 if (hit.transform.tag == "rightAns2")
                 {
-                    if (!elfoRes) 
+                    if (elfoShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         contador++;
                         _textCount.text = contador.ToString() + "/5";
                         elfoRes = true;
                         canvas2.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                        elfoShow = false;
                     }
                 }
                 if (hit.transform.tag == "rightAns3")
                 {
-                    if (!lenadoraRes) 
+                    if (lenadoraShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         contador++;
                         _textCount.text = contador.ToString() + "/5";
                         lenadoraRes = true;
                         canvas3.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                        lenadoraShow = false;
                     }
                 }
                 if (hit.transform.tag == "rightAns4")
                 {
-                    if (!cajeroRes) 
+                    if (cajeroShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         contador++;
                         _textCount.text = contador.ToString() + "/5";
                         cajeroRes = true;
                         canvas4.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                        cajeroShow = false;
                     }
                 }
                 if (hit.transform.tag == "rightAns5")
                 {
-                    if (!constructoraRes) 
+                    if (constructoraShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         contador++;
                         _textCount.text = contador.ToString() + "/5";
                         constructoraRes = true;
                         canvas5.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer!", 3, true));
+                        constructoraShow = false;
                     }
                 }
                 // Wrong options
                 if (hit.transform.tag == "wrongAns1")
                 {
-                    if (!ninoRes) 
+                    if (ninoShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
                 if (hit.transform.tag == "wrongAns2")
                 {
-                    if (!elfoRes) 
+                    if (elfoShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
                 if (hit.transform.tag == "wrongAns3")
                 {
-                    if (!lenadoraRes) 
+                    if (lenadoraShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
                 if (hit.transform.tag == "wrongAns4")
                 {
-                    if (!cajeroRes) 
+                    if (cajeroShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
                 if (hit.transform.tag == "wrongAns5")
                 {
-                    if (!constructoraRes) 
+                    if (constructoraShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
@@ -281,11 +327,11 @@ public class pointergamebehaivour : MonoBehaviour
             //  _gazedAtObject?.SendMessage("CargarAnimacion");
             //  _gazedAtObject = null;
             puntero.fillAmount = 0.0f;
-            canvas1.enabled = false;
+            /*canvas1.enabled = false;
             canvas2.enabled = false;
             canvas3.enabled = false;
             canvas4.enabled = false;
-            canvas5.enabled = false;
+            canvas5.enabled = false;*/
             book.SetActive(false);
         }
     }
