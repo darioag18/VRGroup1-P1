@@ -17,7 +17,7 @@ public void MyQuit()
 public void CargarLevel0()
     {
 
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(4);
 
     }
 

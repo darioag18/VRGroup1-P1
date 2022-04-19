@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Castle wireframe.unity
     guid: 626b0d38b73dfa04b86b9f2a5290db3b
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: e2c4e94f847e8e54583a009734f88b6b
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 1f1dbeb49126d6a42bb304158742b4a5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 81f865b8eef87f0449466d27d0e1c8a7, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 09efcf31a4b19044daf51fe416287c3f, type: 2}

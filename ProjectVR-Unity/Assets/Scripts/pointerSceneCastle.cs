@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class pointerSceneCastle : MonoBehaviour
@@ -43,7 +44,7 @@ public class pointerSceneCastle : MonoBehaviour
         }
         if (contador >= 1)
         {
-            
+            StartCoroutine(LoadFinalScene(3));
         }
     }
 
@@ -157,5 +158,12 @@ public class pointerSceneCastle : MonoBehaviour
         yield return new WaitForSeconds(delay);
         _textResVerify.enabled = false;
     }
+
+    private IEnumerator LoadFinalScene (float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(5);
+    }
         
 }
+
