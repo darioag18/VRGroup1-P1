@@ -28,6 +28,8 @@ TagManager:
   - wrongAns3
   - wrongAns4
   - wrongAns5
+  - rightAnsKing
+  - wrongAnsKing
   layers:
   - Default
   - TransparentFX
