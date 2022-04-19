@@ -8,8 +8,10 @@ public class lookAndWalk : MonoBehaviour
     public float puntolimite = 30.0f;
 
     public float speed = 1.0f;
-
+    
+    private AudioSource[] _audio;
     private bool moviendose;
+    private bool reproduciendo = false;
     Vector3 adelante;
 
     // Start is called before the first frame update
@@ -36,12 +38,25 @@ public class lookAndWalk : MonoBehaviour
         else
         {
             moviendose = false;
+            reproduciendo = true;
+            _audio[1].Stop();
         }
 
         if (moviendose)
             {
                 adelante = vrCamera.transform.TransformDirection(Vector3.forward);
                 adelante *= speed * Time.deltaTime;
+                _audio = vrCamera.transform.GetComponents<AudioSource>();
+
+                if(reproduciendo){
+                    _audio[1].Play();
+                    reproduciendo = false;
+
+                }
+                
+
+                Debug.Log(_audio);
+
                 adelante.y = 0f;
                 transform.position += adelante;
             }
