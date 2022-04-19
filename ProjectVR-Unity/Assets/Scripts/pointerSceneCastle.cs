@@ -93,7 +93,7 @@ public class pointerSceneCastle : MonoBehaviour
                     if (!kingRes) 
                     {
                         contador++;
-                        _textCount.text = contador.ToString() + "/5";
+                        _textCount.text = contador.ToString() + "/1";
                         kingRes = true;
                         canvas1.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));

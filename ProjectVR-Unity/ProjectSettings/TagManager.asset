@@ -30,6 +30,7 @@ TagManager:
   - wrongAns5
   - rightAnsKing
   - wrongAnsKing
+  - king
   layers:
   - Default
   - TransparentFX
