@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.55875415, g: 0.58669835, b: 0.5716782, a: 1}
+  m_IndirectSpecularColor: {r: 0.558755, g: 0.58669937, b: 0.57167906, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9359,7 +9359,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583927559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000004722}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186974333}
@@ -9367,7 +9367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.13, y: 0.0000061989}
+  m_AnchoredPosition: {x: -3, y: -1}
   m_SizeDelta: {x: 5.23, y: 5.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &586976066 stripped
@@ -20392,7 +20392,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ce766c01554019546a94214fc35c861e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e45173b452d85b4b972b9a21027b613, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.101
   m_Pitch: 1
@@ -22937,7 +22937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I go yo the bar twice a week
+  m_text: I go to the bar twice a week
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27864,7 +27864,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797222812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000000024127}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335392442}
@@ -27872,8 +27872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.70003, y: -1.2}
-  m_SizeDelta: {x: 43.625, y: 29.06}
+  m_AnchoredPosition: {x: -0.66, y: -1.2}
+  m_SizeDelta: {x: 37.2, y: 29.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1797222814
 MonoBehaviour:

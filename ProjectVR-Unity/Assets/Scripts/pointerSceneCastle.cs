@@ -14,10 +14,10 @@ public class pointerSceneCastle : MonoBehaviour
     private float tiempotrasncurrido = 20.0f;
     public Image puntero;
     private int contador = 0;
-    private AudioSource _audioexplosion;
+    private AudioSource[] _audio;
     public float tiempoRes = 0.0f;
     
-    private bool kingRes = false;
+    private bool kingRes, kingShow = false;
 
     public Canvas canvas1;
     
@@ -64,25 +64,19 @@ public class pointerSceneCastle : MonoBehaviour
             if ((_gazedAtObject != hit.transform.gameObject) && tiempotrasncurrido >= tiempoclick)
             {
 
-                if (hit.transform.tag == "enemy")
-                {
-                    //Debug.Log("Eliminado  :" + hit.transform.name);
-                    contador++;
-                    _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                    _audioexplosion.Play();
-                    //_textMeshProUGUI.text = contador.ToString();
-                    
-                    Debug.Log("asdasdsadsad");
-                    //StartCoroutine(DestruirEnemigo(hit.transform.gameObject));
-                }
-
                 if (hit.transform.tag == "king")
                 {
                     if (!kingRes) {
-                        _audioexplosion = hit.transform.GetComponent<AudioSource>();
-                        _audioexplosion.Play();
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                      
+                        if(!kingShow){
+                            _audio[0].Play();
+
+                        }
 
                         canvas1.enabled = true;
+                        kingShow = true;
                     }
                 }
 
@@ -91,21 +85,29 @@ public class pointerSceneCastle : MonoBehaviour
                 // Right options
                 if (hit.transform.tag == "rightAnsKing")
                 {
-                    if (!kingRes) 
+                    if (kingShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
+
                         contador++;
                         _textCount.text = contador.ToString() + "/1";
                         kingRes = true;
                         canvas1.enabled = false;
                         StartCoroutine(ShowVerificationAns("Correct Answer", 3, true));
+                        kingShow = true;
                     }
                 }
                 
                 // Wrong options
                 if (hit.transform.tag == "wrongAnsKing")
                 {
-                    if (!kingRes) 
+                    if (kingShow) 
                     {
+                        _audio = hit.transform.GetComponents<AudioSource>();
+                        Debug.Log(_audio);
+                        _audio[0].Play();
                         StartCoroutine(ShowVerificationAns("Wrong Answer", 2, false));
                     }
                 }
@@ -132,16 +134,7 @@ public class pointerSceneCastle : MonoBehaviour
             //  _gazedAtObject?.SendMessage("CargarAnimacion");
             //  _gazedAtObject = null;
             puntero.fillAmount = 0.0f;
-            canvas1.enabled = false;
-        }
-    }
-
-    private IEnumerator DestruirEnemigo(GameObject enemigo)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            Destroy(enemigo);
+            //canvas1.enabled = false;
         }
     }
 

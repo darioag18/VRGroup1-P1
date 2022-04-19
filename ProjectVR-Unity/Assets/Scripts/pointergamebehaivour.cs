@@ -157,7 +157,7 @@ public class pointergamebehaivour : MonoBehaviour
                 if (hit.transform.tag == "book3")
                 {
                     book.SetActive(true);
-                    _texto.text = "Affirmative. \n To make positive sentences, the pronouns I/you/we/they always go at the beginning of the sentence and the verb keeps in its base form. To make positive sentences, the pronouns he/she/it need a complement to above conditions to the base form of the verb.";
+                    _texto.text = "Affirmative. \n To make positive sentences, the pronouns I/you/we/they always go at the beginning of the sentence and the verb keeps in its base form.";
                 }
                  if (hit.transform.tag == "book4")
                 {
@@ -333,15 +333,6 @@ public class pointergamebehaivour : MonoBehaviour
             canvas4.enabled = false;
             canvas5.enabled = false;*/
             book.SetActive(false);
-        }
-    }
-
-    private IEnumerator DestruirEnemigo(GameObject enemigo)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            Destroy(enemigo);
         }
     }
 
